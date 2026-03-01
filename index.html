@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Kho Đề Thi TNTHPT</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#eef2f7;
+    text-align:center;
+}
+
+header{
+    background:#1e3d59;
+    color:white;
+    padding:20px;
+}
+
+button{
+    padding:10px 18px;
+    margin:10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#0077cc;
+    color:white;
+}
+
+button:hover{
+    background:#e74c3c;
+}
+
+.section{
+    display:none;
+    background:white;
+    width:85%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+textarea{
+    width:80%;
+    height:80px;
+    margin-top:10px;
+    padding:8px;
+}
+
+.comment-box{
+    margin-top:15px;
+    background:#f4f6f9;
+    padding:10px;
+    border-radius:6px;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📚 Kho Đề Thi TNTHPT</h1>
+<p>Chọn môn để xem và góp ý</p>
+</header>
+
+<button onclick="showSection('toan')">📐 Toán</button>
+<button onclick="showSection('van')">📖 Ngữ Văn</button>
+<button onclick="showSection('ly')">⚡ Vật Lý</button>
+
+<!-- TOÁN -->
+<div id="toan" class="section">
+<h2>Góp Ý Môn Toán</h2>
+<textarea id="inputToan" placeholder="Nhập góp ý của bạn..."></textarea><br>
+<button onclick="addComment('inputToan','commentToan')">Gửi góp ý</button>
+<div id="commentToan" class="comment-box"></div>
+</div>
+
+<!-- VĂN -->
+<div id="van" class="section">
+<h2>Góp Ý Môn Ngữ Văn</h2>
+<textarea id="inputVan" placeholder="Nhập góp ý của bạn..."></textarea><br>
+<button onclick="addComment('inputVan','commentVan')">Gửi góp ý</button>
+<div id="commentVan" class="comment-box"></div>
+</div>
+
+<!-- LÝ -->
+<div id="ly" class="section">
+<h2>Góp Ý Môn Vật Lý</h2>
+<textarea id="inputLy" placeholder="Nhập góp ý của bạn..."></textarea><br>
+<button onclick="addComment('inputLy','commentLy')">Gửi góp ý</button>
+<div id="commentLy" class="comment-box"></div>
+</div>
+
+<script>
+function showSection(id){
+    var sections = document.getElementsByClassName("section");
+    for(var i=0;i<sections.length;i++){
+        sections[i].style.display="none";
+    }
+    document.getElementById(id).style.display="block";
+}
+
+function addComment(inputId, commentId){
+    var input = document.getElementById(inputId);
+    var commentBox = document.getElementById(commentId);
+    if(input.value.trim() !== ""){
+        var p = document.createElement("p");
+        p.textContent = "- " + input.value;
+        commentBox.appendChild(p);
+        input.value="";
+    }
+}
+</script>
+
+</body>
+</html>
