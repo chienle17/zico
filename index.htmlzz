@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kho Đề Thi TNTHPT 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* NAVBAR */
+nav{
+    background:#1e3d59;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+nav h2{
+    cursor:pointer;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:20px;
+    cursor:pointer;
+}
+
+nav ul li:hover{
+    color:#f39c12;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://via.placeholder.com/1400x500?text=TNTHPT+2026");
+    background-size:cover;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+/* SUBJECT SECTION */
+.subjects{
+    padding:50px 10%;
+}
+
+.subject-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px;
+    text-align:center;
+}
+
+/* EXAM SECTION */
+.section{
+    display:none;
+    padding:40px 10%;
+}
+
+.exam-box{
+    background:white;
+    padding:15px;
+    margin:15px 0;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+button{
+    padding:6px 12px;
+    border:none;
+    border-radius:6px;
+    background:#0077cc;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e74c3c;
+}
+
+.answer{
+    display:none;
+    margin-top:8px;
+    background:#eef2f7;
+    padding:8px;
+    border-radius:6px;
+}
+
+/* FOOTER */
+footer{
+    background:#1e3d59;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<h2 onclick="goHome()">📚 TNTHPT 2026</h2>
+<ul>
+<li onclick="goHome()">Trang chủ</li>
+<li onclick="showSection('toan')">Toán</li>
+<li onclick="showSection('van')">Văn</li>
+<li onclick="showSection('ly')">Lý</li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Kho Đề Thi Tốt Nghiệp THPT</h1>
+<p>Luyện thi hiệu quả - Có đáp án chi tiết</p>
+</div>
+
+<!-- TRANG CHỦ -->
+<div class="subjects" id="home">
+<h2 style="margin-bottom:20px;">Chọn Môn Học</h2>
+<div class="subject-grid">
+
+<div class="card" onclick="showSection('toan')">
+<img src="https://via.placeholder.com/400x200?text=Mon+Toan">
+<h3>📐 Môn Toán</h3>
+</div>
+
+<div class="card" onclick="showSection('van')">
+<img src="https://via.placeholder.com/400x200?text=Mon+Van">
+<h3>📖 Môn Ngữ Văn</h3>
+</div>
+
+<div class="card" onclick="showSection('ly')">
+<img src="https://via.placeholder.com/400x200?text=Mon+Vat+Ly">
+<h3>⚡ Môn Vật Lý</h3>
+</div>
+
+</div>
+</div>
+
+<!-- TOÁN -->
+<div id="toan" class="section">
+<h2>Môn Toán</h2>
+
+<div class="exam-box">
+Đề 1 Toán
+<button onclick="toggleAnswer('a1')">Xem đáp án</button>
+<div id="a1" class="answer">1A 2B 3C 4D</div>
+</div>
+
+<div class="exam-box">
+Đề 2 Toán
+<button onclick="toggleAnswer('a2')">Xem đáp án</button>
+<div id="a2" class="answer">1C 2D 3A 4B</div>
+</div>
+
+</div>
+
+<!-- VĂN -->
+<div id="van" class="section">
+<h2>Môn Ngữ Văn</h2>
+
+<div class="exam-box">
+Đề 1 Văn
+<button onclick="toggleAnswer('b1')">Xem đáp án</button>
+<div id="b1" class="answer">Gợi ý phân tích nội dung...</div>
+</div>
+
+</div>
+
+<!-- LÝ -->
+<div id="ly" class="section">
+<h2>Môn Vật Lý</h2>
+
+<div class="exam-box">
+Đề 1 Lý
+<button onclick="toggleAnswer('c1')">Xem đáp án</button>
+<div id="c1" class="answer">1B 2A 3D 4C</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Kho Đề Thi TNTHPT | Thiết kế bởi bạn
+</footer>
+
+<script>
+function showSection(id){
+    document.getElementById("home").style.display="none";
+    document.getElementById("toan").style.display="none";
+    document.getElementById("van").style.display="none";
+    document.getElementById("ly").style.display="none";
+    document.getElementById(id).style.display="block";
+    window.scrollTo(0,0);
+}
+
+function goHome(){
+    document.getElementById("home").style.display="block";
+    document.getElementById("toan").style.display="none";
+    document.getElementById("van").style.display="none";
+    document.getElementById("ly").style.display="none";
+}
+
+function toggleAnswer(id){
+    var x=document.getElementById(id);
+    x.style.display = (x.style.display==="block") ? "none":"block";
+}
+</script>
+
+</body>
+</html>
